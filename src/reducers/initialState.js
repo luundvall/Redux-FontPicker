@@ -9,4 +9,9 @@ export default {
         g: '',
         b: ''
     },
+    BackgroundColor: {
+        r: '',
+        g: '',
+        b: ''
+    },
 };

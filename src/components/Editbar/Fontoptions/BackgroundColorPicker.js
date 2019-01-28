@@ -5,16 +5,16 @@ import * as fontActions from '../../../actions';
 import { SketchPicker } from 'react-color';
 import enhanceWithClickOutside from 'react-click-outside';
 
-class ColorPicker extends React.Component {
+class BackGroundColorPicker extends React.Component {
     constructor(props, context) {
         super(props, context);
         this.state = {
-            color: {
-                r: this.props.fonts.color.r,
-                g: this.props.fonts.color.g,
-                b: this.props.fonts.color.r
-            },
-            displayColorPicker: false
+            displayColorPicker: false,
+            BackgroundColor: {
+                r: this.props.fonts.BackgroundColor.r,
+                g: this.props.fonts.BackgroundColor.g,
+                b: this.props.fonts.BackgroundColor.r
+            }
         }
         this.handleOnChange = this.handleOnChange.bind(this);
         this.handleOnClick = this.handleOnClick.bind(this);
@@ -23,8 +23,9 @@ class ColorPicker extends React.Component {
     }
 
     handleOnChange = (e) => {
-        this.props.actions.changeFontColor({ r: e.rgb.r, g: e.rgb.g, b: e.rgb.b });
-        this.setState({ color: { r: e.rgb.r, g: e.rgb.g, b: e.rgb.b } });
+        this.props.actions.changeBackgroundColor({ r: e.rgb.r, g: e.rgb.g, b: e.rgb.b });
+        document.body.style.backgroundColor = 'rgb(' + e.rgb.r + ',' + e.rgb.g + ',' + e.rgb.b + ')'
+        this.setState({ BackgroundColor: { r: e.rgb.r, g: e.rgb.g, b: e.rgb.b } });
     }
 
     handleOnClick() {
@@ -52,39 +53,38 @@ class ColorPicker extends React.Component {
 
 
     render() {
-        const { color, displayColorPicker } = this.state;
+        const { BackgroundColor, displayColorPicker } = this.state;
 
         const style = {
             textAlign: 'center',
             fontSize: '18px',
             fontWeight: '700',
             padding: '5px',
-            background: '#fff',
+            background: 'rgb(' + BackgroundColor.r + ',' + BackgroundColor.g + ',' + BackgroundColor.b + ')',
             borderRadius: '4px',
             height: '36px',
             width: '45px',
             border: '1px solid rgba(0,0,0,.1)',
             display: 'inline-block',
-            cursor: 'pointer',
-            color: 'rgb(' + color.r + ',' + color.g + ',' + color.b + ')' 
+            cursor: 'pointer'
         }
         return (
             <div>
                     <div>
                         <div>
                             <label>
-                                TEXT COLOR
+                                BACKGROUND COLOR
                             </label>
                         </div>
                         <div>
                             <div onClick={this.handleOnClick} >
-                                <span style={style} >A</span>
+                                <span style={style} ></span>
                             </div>
                         </div>
                     </div>
                     {displayColorPicker ?
                     <div ref={this.setWrapperRef} className="ColorPicker__Popover">
-                        <SketchPicker color={color} onChange={this.handleOnChange} />
+                        <SketchPicker color={BackgroundColor} onChange={this.handleOnChange} />
                     </div> :null}
 
             </div>
@@ -104,4 +104,4 @@ function mapDispatchToProps(dispatch) {
     };
 }
 
-export default enhanceWithClickOutside(connect(mapStateToProps, mapDispatchToProps)(ColorPicker));
+export default enhanceWithClickOutside(connect(mapStateToProps, mapDispatchToProps)(BackGroundColorPicker));

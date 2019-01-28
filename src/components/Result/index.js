@@ -25,7 +25,7 @@ class Result extends React.Component {
 
     render() {
         const style = {
-            backgroundColor: '#dee2e8',
+            backgroundColor: 'rgb(222, 226, 232, 0.2)',
             padding: '10px',
             height: '250px'
         }

@@ -24,6 +24,9 @@ export default function columnReducer(state = initialState, action) {
         case types.CHANGE_FONTCOLOR_SUCCESS:
             state.color = action.rgb;
             return state;
+        case types.CHANGE_BACKGROUNDCOLOR_SUCCESS:
+            state.BackgroundColor = action.rgb;
+            return state;
         default:
             return state;
     }

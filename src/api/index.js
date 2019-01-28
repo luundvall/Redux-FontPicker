@@ -1,4 +1,3 @@
-//Google API-key - https://www.googleapis.com/webfonts/v1/webfonts?key=AIzaSyACULpszbWYoo4wwRxSfaZKu3T2GEcsC-Q
 import { API_KEY }  from  './config';
 
 class GoogleApi {

@@ -69,3 +69,13 @@ export function changeFontColor(rgb) {
         return dispatch(changeFontColorSuccess(rgb));
     }
 }
+
+function changeBackgroundColorSuccess(rgb) {
+    return { type: types.CHANGE_BACKGROUNDCOLOR_SUCCESS, rgb };
+}
+
+export function changeBackgroundColor(rgb) {
+    return function (dispatch) {
+        return dispatch(changeBackgroundColorSuccess(rgb));
+    }
+}

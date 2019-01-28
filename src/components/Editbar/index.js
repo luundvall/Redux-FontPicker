@@ -58,7 +58,8 @@ class App extends React.Component {
 
   render() {
     const style = {
-      padding: '10px'
+      padding: '10px',
+      backgroundColor: 'white'
     }
     return (
 

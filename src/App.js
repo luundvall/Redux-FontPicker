@@ -2,7 +2,6 @@ import React from 'react';
 import Editbar from './components/Editbar';
 import Result from './components/Result';
 import { connect } from 'react-redux';
-import './App.css';
 
 class App extends React.Component {
   render() {
