@@ -1,28 +1,39 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React from 'react';
+import Editbar from './components/Editbar';
+import Result from './components/Result';
+import { connect } from 'react-redux';
 import './App.css';
 
-class App extends Component {
+class App extends React.Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div className="container">
+        <div className="row">
+          <div className="col-8">
+            <Result
+            fonts={this.props.fonts}
+            />
+          </div>
+          <div className="col-3">
+            <Editbar
+              fonts={this.props.fonts}
+            />
+          </div>
+        </div>
       </div>
     );
   }
 }
 
-export default App;
+function mapStateToProps(state, ownProps) {
+	return {
+    fonts: state.fonts
+	};
+}
+
+function mapDispatchToProps(dispatch) {
+	return {
+	};
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
