@@ -11,7 +11,8 @@ const Result = ({ handleChange, inputValue, fontSize, fontFamily, color}) => {
         backgroundColor: 'transparent',
         width: '100%',
         border: 'none',
-        outline: 'none'
+        outline: 'none',
+        height: '140px'
     }
 
     return (

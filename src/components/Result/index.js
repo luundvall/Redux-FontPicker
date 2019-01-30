@@ -4,23 +4,31 @@ import Choices from './choices';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as fontActions from '../../actions';
+import HowToUse from './HowToUse.js'
+import CodeBlock from './CodeBlock';
 
 class Result extends React.Component {
     constructor(props, context) {
         super(props, context);
         this.state = {
-            inputValue: '', 
+            inputValue: '',
             fontFamily: this.props.fonts.fontFamily,
             fontSize: this.props.fonts.fontSize,
-            category: this.props.fonts.category
+            category: this.props.fonts.category,
+            displayCode: false
         }
 
         this.handleChange = this.handleChange.bind(this);
+        this.displayCode = this.displayCode.bind(this);
     }
 
     handleChange = (e) => {
-        this.setState({inputValue: e.target.value})
-    } 
+        this.setState({ inputValue: e.target.value })
+    }
+
+    displayCode = (e) => {
+        this.setState({ displayCode: !this.state.displayCode });
+    }
 
 
     render() {
@@ -29,7 +37,10 @@ class Result extends React.Component {
             padding: '10px',
             height: '250px'
         }
-        return (
+
+        return (<div>
+
+
             <div style={style}>
                 <div>
                     <Choices
@@ -47,21 +58,27 @@ class Result extends React.Component {
                         color={this.props.fonts.color}
                     />
                 </div>
+                <HowToUse displayCode={this.displayCode} />
             </div>
+
+            {this.state.displayCode ?
+                <CodeBlock fontFamily={this.props.fonts.fontFamily}/>
+            : null}
+        </div>
         );
     }
 }
 
 function mapStateToProps(state, ownProps) {
-	return {
-    fonts: state.fonts
-	};
+    return {
+        fonts: state.fonts
+    };
 }
 
 function mapDispatchToProps(dispatch) {
-	return {
-    actions: bindActionCreators(fontActions, dispatch)
-	};
+    return {
+        actions: bindActionCreators(fontActions, dispatch)
+    };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Result);

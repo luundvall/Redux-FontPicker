@@ -59,7 +59,7 @@ class App extends React.Component {
   render() {
     const style = {
       padding: '10px',
-      backgroundColor: 'white'
+      backgroundColor: 'rgba(222, 226, 232, 0.2)'
     }
     return (
 

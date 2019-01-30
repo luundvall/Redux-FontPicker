@@ -10,6 +10,17 @@ const FontFamily = ({ handleChangeFontFamily, state, fonts }) => {
         });
     }
 
+    const style = {
+        textAlign: 'center',
+        padding: '5px',
+        background: '#fff',
+        borderRadius: '4px',
+        height: '36px',
+        border: '1px solid rgba(0,0,0,.1)',
+        display: 'inline-block',
+        cursor: 'pointer'
+    }
+
     return (
         <div>
             <div>
@@ -18,7 +29,8 @@ const FontFamily = ({ handleChangeFontFamily, state, fonts }) => {
                 </label>
             </div>
             <div>
-                <select value={state.fontFamily} id="fontFamily" onChange={handleChangeFontFamily}>
+                <select style={style} value={state.fontFamily} id="fontFamily" onChange={handleChangeFontFamily}>
+                <option defaultValue> - Select - </option>
                     {getOptions(fonts)}
                 </select>
             </div>

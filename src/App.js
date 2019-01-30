@@ -13,7 +13,7 @@ class App extends React.Component {
             fonts={this.props.fonts}
             />
           </div>
-          <div className="col-3">
+          <div className="col-4">
             <Editbar
               fonts={this.props.fonts}
             />
