@@ -1,7 +1,9 @@
 import React from 'react';
 import './Classification.css'
+import Loader from '../loader';
 
-const FontOptions = ({ activeClassification, categories, handleCategoryChange }) => {
+
+const FontOptions = ({ activeClassification, categories, handleCategoryChange, isFetching }) => {
     const style = {
         display: 'flex',
         width: '100%',
@@ -45,7 +47,7 @@ const FontOptions = ({ activeClassification, categories, handleCategoryChange })
                 Classification
             </h4>
             <ul style={style}>
-                {listItems(categories)}
+    {isFetching ? <Loader /> : listItems(categories)  }
             </ul>
         </div>
     );

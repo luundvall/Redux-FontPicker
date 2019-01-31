@@ -70,10 +70,12 @@ class App extends React.Component {
             fonts={this.props.fonts}
             categories={this.props.fonts.categories}
             handleCategoryChange={this.handleCategoryChange}
+            isFetching={this.props.fonts.isFetching}
           />
         </section>
         <section>
           <FontOptions
+            isFetchingCategories={this.props.fonts.isFetchingCategories}
             handleChangeFontFamily={this.handleChangeFontFamily}
             handleFontSizeChange={this.handleFontSizeChange}
             handleFontColorChange={this.handleFontColorChange}
@@ -91,7 +93,8 @@ class App extends React.Component {
 
 function mapStateToProps(state, ownProps) {
   return {
-    fonts: state.fonts
+    fonts: state.fonts,
+    loading: state.loading
   };
 }
 

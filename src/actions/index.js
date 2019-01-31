@@ -6,8 +6,13 @@ function getAllFontsSuccess(fonts) {
     return { type: types.GET_ALL_FONTS_SUCCESS, fonts };
 }
 
+function getAllfontsRequest() {
+    return {type: types.GET_FONTS_REQUEST};
+}
+
 export function getAllFonts() {
     return function (dispatch) {
+        dispatch(getAllfontsRequest());
         return googleAPI.getAllFontsMock().then((fonts) => {
             dispatch(getAllFontsSuccess(fonts));
         }).catch(error => {
@@ -16,12 +21,16 @@ export function getAllFonts() {
     };
 }
 
-export function getAllCategoriesSuccess(categories) {
+function getAllCategoriesSuccess(categories) {
     return { type: types.GET_ALL_CATEGORIES_SUCCESS, categories };
 }
 
+function getAllCategoriesRequest() {
+    return {type: types.GET_CATEGORIES_REQUEST};
+}
 export function getAllCategories() {
     return function (dispatch) {
+        dispatch(getAllCategoriesRequest());
         return googleAPI.getAllCategoriesMock().then((categories) => {
             dispatch(getAllCategoriesSuccess(categories));
         }).catch(error => {
