@@ -1,6 +1,6 @@
 import React from 'react';
-
-const FontFamily = ({ handleChangeFontFamily, state, fonts }) => {
+import Loader from '../../loader'
+const FontFamily = ({ handleChangeFontFamily, state, fonts, isFetchingCategories }) => {
 
     const getOptions = (fonts) => {
         return fonts.map((font) => {
@@ -28,11 +28,11 @@ const FontFamily = ({ handleChangeFontFamily, state, fonts }) => {
                     Font-family
                 </label>
             </div>
-            <div>
+            <div>{isFetchingCategories ? <Loader /> :
                 <select style={style} value={state.fontFamily} id="fontFamily" onChange={handleChangeFontFamily}>
-                <option defaultValue> - Select - </option>
+                    <option defaultValue> - Select - </option>
                     {getOptions(fonts)}
-                </select>
+                </select>}
             </div>
         </div>
     );

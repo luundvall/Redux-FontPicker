@@ -14,4 +14,6 @@ export default {
         g: '',
         b: ''
     },
+    isFetching: false,
+    isFetchingCategories: false
 };
