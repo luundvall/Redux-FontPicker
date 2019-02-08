@@ -7,7 +7,7 @@ function getAllFontsSuccess(fonts) {
 }
 
 function getAllfontsRequest() {
-    return {type: types.GET_FONTS_REQUEST};
+    return { type: types.GET_FONTS_REQUEST };
 }
 
 export function getAllFonts() {
@@ -26,7 +26,7 @@ function getAllCategoriesSuccess(categories) {
 }
 
 function getAllCategoriesRequest() {
-    return {type: types.GET_CATEGORIES_REQUEST};
+    return { type: types.GET_CATEGORIES_REQUEST };
 }
 export function getAllCategories() {
     return function (dispatch) {
@@ -60,7 +60,7 @@ export function changeFontSize(fontSize) {
 }
 
 function changeCategorySuccess(category) {
-        return { type: types.CHANGE_CATEGORY_SUCCESS, category };
+    return { type: types.CHANGE_CATEGORY_SUCCESS, category };
 }
 
 export function changeCategory(category) {
@@ -70,7 +70,7 @@ export function changeCategory(category) {
 }
 
 function changeFontColorSuccess(rgb) {
-    return { type: types.CHANGE_FONTCOLOR_SUCCESS, rgb};
+    return { type: types.CHANGE_FONTCOLOR_SUCCESS, rgb };
 }
 
 export function changeFontColor(rgb) {
@@ -86,5 +86,25 @@ function changeBackgroundColorSuccess(rgb) {
 export function changeBackgroundColor(rgb) {
     return function (dispatch) {
         return dispatch(changeBackgroundColorSuccess(rgb));
+    }
+}
+
+function changeFontVariantSuccess(fontWeight) {
+    return { type: types.CHANGE_FONTVARIANT_SUCCESS, fontWeight };
+}
+
+export function changeFontVariant(fontWeight) {
+    return function (dispatch) {
+        return dispatch(changeFontVariantSuccess(fontWeight));
+    }
+}
+
+function changeFontStyleSuccess(fontStyle) {
+    return { type: types.CHANGE_FONTSTYLE_SUCCESS, fontStyle };
+}
+
+export function changeFontStyle(fontStyle) {
+    return function (dispatch) {
+        return dispatch(changeFontStyleSuccess(fontStyle));
     }
 }
