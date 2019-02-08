@@ -15,6 +15,7 @@ const FontFamily = ({ handleChangeFontFamily, state, fonts, isFetchingCategories
         padding: '5px',
         background: '#fff',
         borderRadius: '4px',
+        width: '100%',
         height: '36px',
         border: '1px solid rgba(0,0,0,.1)',
         display: 'inline-block',

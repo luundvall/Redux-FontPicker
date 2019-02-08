@@ -14,8 +14,8 @@ export default function columnReducer(state = initialState, action) {
             state.fonts = action.fonts.items;
             state.fontFamily = action.fonts.items[0].family;
             state.category = action.fonts.items[0].category;
+            state.fontVariants = action.fonts.items[0].variants;
             state.isFetching = false;
-            console.log('..stop fetching');
             return state;
         case types.GET_ALL_CATEGORIES_SUCCESS:
             state.categories = action.categories;
@@ -35,6 +35,13 @@ export default function columnReducer(state = initialState, action) {
             return state;
         case types.CHANGE_BACKGROUNDCOLOR_SUCCESS:
             state.BackgroundColor = action.rgb;
+            return state;
+        case types.CHANGE_FONTVARIANT_SUCCESS: 
+            state.fontWeight = action.fontWeight;
+            return state;
+        case types.CHANGE_FONTSTYLE_SUCCESS: 
+            console.log(action.fontStyle);
+            state.fontStyle = action.fontStyle;
             return state;
         default:
             return state;

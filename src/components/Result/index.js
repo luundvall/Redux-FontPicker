@@ -14,6 +14,8 @@ class Result extends React.Component {
             inputValue: '',
             fontFamily: this.props.fonts.fontFamily,
             fontSize: this.props.fonts.fontSize,
+            fontStyle: this.props.fonts.fontStyle,
+            fontWeight: this.props.fonts.fontWeight,
             category: this.props.fonts.category,
             displayCode: false
         }
@@ -26,7 +28,7 @@ class Result extends React.Component {
         this.setState({ inputValue: e.target.value })
     }
 
-    displayCode = (e) => {
+    displayCode = () => {
         this.setState({ displayCode: !this.state.displayCode });
     }
 
@@ -53,6 +55,8 @@ class Result extends React.Component {
                     <InputArea
                         handleChange={this.handleChange}
                         fontSize={this.props.fonts.fontSize}
+                        fontWeight={this.props.fonts.fontWeight}
+                        fontStyle={this.props.fonts.fontStyle}
                         fontFamily={this.props.fonts.fontFamily}
                         inputValue={this.state.inputValue}
                         color={this.props.fonts.color}
